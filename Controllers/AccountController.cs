@@ -93,5 +93,41 @@ namespace TestWebApi.Controllers
         {
             return _context.Employees.Any(e => e.Id == id);
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
+        {
+            var employee = await _context.Employees
+                .FirstOrDefaultAsync(e => e.Username == loginRequest.Username && e.Password == loginRequest.Password);
+
+            if (employee == null)
+            {
+                return Unauthorized(new { message = "Invalid credentials" });
+            }
+
+            var response = new LoginResponse
+            {
+                Id = employee.Id,
+                Firstname = employee.Firstname,
+                Surname = employee.Surname,
+                IsComplete = employee.IsComplete
+            };
+
+            return Ok(response);
+        }
     }
+    public class LoginRequest
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
+
+    public class LoginResponse
+    {
+        public int Id { get; set; }
+        public string? Firstname { get; set; }
+        public string? Surname { get; set; }
+        public bool IsComplete { get; set; }
+    }
+
 }

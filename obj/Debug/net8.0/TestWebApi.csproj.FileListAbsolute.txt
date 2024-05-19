@@ -135,3 +135,4 @@ C:\Users\kotze\TestWebApi\obj\Debug\net8.0\refint\TestWebApi.dll
 C:\Users\kotze\TestWebApi\obj\Debug\net8.0\TestWebApi.pdb
 C:\Users\kotze\TestWebApi\obj\Debug\net8.0\TestWebApi.genruntimeconfig.cache
 C:\Users\kotze\TestWebApi\obj\Debug\net8.0\ref\TestWebApi.dll
+C:\Users\kotze\TestWebApi\obj\Debug\net8.0\TestWebApi.sourcelink.json
